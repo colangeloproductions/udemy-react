@@ -12,18 +12,25 @@ interface BasicUser<A = boolean> {
     permissions?: string[];
 };
 
-const user1: BasicUser<boolean> = {
-    name: Romeo;
-    surname: Colangelo;
-    age: 20;
-    isAdmin: true;
+interface BasicUser {
+    account: number;
+}
+
+const user1: BasicUser = {
+    name: Romeo,
+    surname: Colangelo,
+    age: 20,
+    isAdmin: true,
+    account: 100,
 };
 
 let usersArray: BasicUser[] = [user,user,user];
 
-function firstUser(usersArray: BasicUser) {
+function getFirst<T>(arr: T[]): T {
     return usersArray[0];
 }
+
+getFirst<BasicUser>(usersArray);
 
 type MathFunc = (a: number, b: number) => number;
 
